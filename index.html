@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aula.bg</title>
+<style>
+        @import url('https://fonts.googleapis.com/css2?family=TTFors&display=swap'); /* Връзка към шрифта TTFors */
+ 
+        body {
+            font-family: 'TTFors', Arial, sans-serif; /* Шрифт TTFors */
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* Забранява хоризонталната превъртане */
+        }
+        header {
+            background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачен сив цвят за заглавието */
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+            transition: background-color 0.5s; /* Транзиция за цвета на фона */
+        }
+        nav {
+            background-color: #3498db; /* Син цвят за навигационното меню */
+            padding: 10px 0;
+            text-align: center;
+            transition: background-color 0.5s; /* Транзиция за цвета на фона */
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0 20px;
+        }
+        nav a:hover {
+            background-color: #2980b9; /* По-тъмно син цвят при ховър */
+        }
+        .container {
+            position: relative; /* За да можем да позиционираме текста върху изображението */
+            text-align: center;
+            color: #fff;
+            height: 60vh; /* Заема целия екран по вертикала */
+            background-image: url('https://staffskillstraining.co.uk/wp-content/uploads/2016/12/word-course.jpg');
+            background-size: cover; /* Пълно покриване на екрана от изображението */
+            background-position: center; /* Центриране на изображението */
+            overflow: hidden; /* Скрива всяко превъртане извън границите на екрана */
+        }
+        .container:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7); /* Тъмен цвят с 70% прозрачност */
+            backdrop-filter: blur(10px); /* Допълнително замъгляване */
+        }
+        .container h1 {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 4em; /* Оголемяване на текста */
+        }
+        .container p {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.5em; /* Описание под заглавието */
+            width: 80%;
+        }
+        .form-section {
+            background-color: #fff;
+            padding: 50px 0;
+            text-align: center;
+        }
+        .form-section h2 {
+            color: #3498db;
+            margin-bottom: 20px;
+        }
+        .result {
+            display: none;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 4px;
+        }
+        .success {
+            background-color: #4CAF50; /* Зелен цвят за успешна операция */
+            color: white;
+        }
+        .warning {
+            background-color: orange;
+            color: white;
+        }
+        .error {
+            background-color: #f44336; /* Червен цвят за грешка */
+            color: white;
+        }
+        input[type="text"] {
+            width: 200px;
+            padding: 10px;
+            margin: 10px;
+            border: 1px solid #3498db;
+            border-radius: 4px;
+            font-size: 16px;
+            outline: none;
+            text-align: center;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #2980b9;
+        }
+        .about-section {
+            background-color: #f0f0f0;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .about-section h2 {
+            color: #3498db;
+            margin-bottom: 20px;
+        }
+        .about-section p {
+            font-size: 1.2em;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .hidden {
+            display: none;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        @media only screen and (max-width: 600px) {
+            input[type="text"], input[type="submit"], .container h1, .container p {
+                font-size: 14px; /* Промяна на размера на шрифта за телефон */
+            }
+        }
+
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Добре дошли в Aula.bg</h1>
+<p>Запишете се за нашия курс "Word Basics" и усвоете основите на Microsoft Word с лекота.</p>
+</div>
+<div class="form-section">
+<h2>Регистрация за курс "Word Basics"</h2>
+<form action="#" method="post" id="registrationForm">
+<input type="text" name="code" id="code" placeholder="Въведете 9-цифрен код" required>
+<br><br>
+<input type="submit" value="Запиши се">
+</form>
+<div class="result hidden" id="result"></div>
+<div class="result warning hidden" id="additionalInfo">Ако наистина стигна до тук, не е зле да запишеш и киберсигурност при нас ;)</div>
+</div>
+<div class="about-section">
+<h2>За нас</h2>
+<p>Ние сме екип от професионалисти, посветени на обучението и развитието на уменията на нашите клиенти. С нашите курсове по Microsoft Word, ви помагаме да овладеете основните и напредналите функции на програмата, за да повишите своята продуктивност и ефективност. Нашите инструктори са с дългогодишен опит и са готови да ви подкрепят на всяка стъпка от вашето обучение.</p>
+</div>
+ 
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Предотвратява презареждането на страницата при натискане на бутона
+ 
+            var code = document.getElementById('code').value;
+ 
+            if (code === 'S5Q-1K7-MT2') {
+                showResult('Успешно сте записани!', 'success');
+ 
+                setTimeout(function() {
+                    var warning = document.getElementById('additionalInfo');
+                    warning.style.display = 'block';
+                }, 2000);
+            } else {
+                showResult('Грешен код. Моля, опитайте отново.', 'error');
+            }
+        });
+ 
+        function showResult(message, className) {
+            var resultDiv = document.getElementById('result');
+            resultDiv.textContent = message;
+            resultDiv.className = 'result ' + className;
+            resultDiv.style.display = 'block';
+        }
+</script>
+</body>
+</html>
